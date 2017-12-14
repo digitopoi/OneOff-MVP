@@ -5,20 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OneOff.Data.Entities.cs
+namespace OneOff.Models.ViewModels
 {
-    public class GigEntity
+    public class GigEditViewModel
     {
-        [Key]
-        public int GigId { get; set; }
-
         [Required]
-        public Guid OwnerId { get; set; }
-
-        [Required]
+        [Display(Name = "Venue")]
         public string VenueName { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
         [Required]
@@ -30,7 +27,5 @@ namespace OneOff.Data.Entities.cs
         [Required]
         public string Zip { get; set; }
 
-        //  GigViewModel: VenueName, Date, City, State, Zip
-        //  GigEditViewModel: GigId, VenueName, Date, City, State, Zip
     }
 }
