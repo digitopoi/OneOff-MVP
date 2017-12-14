@@ -53,11 +53,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GigService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OneOff.Contracts\OneOff.Contracts.csproj">
+      <Project>{FCF64166-91D1-4494-ACA2-32C7246B89B7}</Project>
+      <Name>OneOff.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneOff.Data\OneOff.Data.csproj">
+      <Project>{967796FE-3272-46E4-A9AC-355482AA4C4B}</Project>
+      <Name>OneOff.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OneOff.Models\OneOff.Models.csproj">
+      <Project>{184e472c-7b29-41fc-8ada-224175a57312}</Project>
+      <Name>OneOff.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

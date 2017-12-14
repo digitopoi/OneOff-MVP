@@ -43,5 +43,11 @@
     <Compile Include="IGigService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OneOff.Models\OneOff.Models.csproj">
+      <Project>{184E472C-7B29-41FC-8ADA-224175A57312}</Project>
+      <Name>OneOff.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

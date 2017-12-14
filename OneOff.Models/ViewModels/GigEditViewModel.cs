@@ -9,6 +9,8 @@ namespace OneOff.Models.ViewModels
 {
     public class GigEditViewModel
     {
+        public int GigId { get; set; }
+
         [Required]
         [Display(Name = "Venue")]
         public string VenueName { get; set; }

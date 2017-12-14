@@ -29,8 +29,5 @@ namespace OneOff.Data.Entities.cs
 
         [Required]
         public string Zip { get; set; }
-
-        //  GigViewModel: VenueName, Date, City, State, Zip
-        //  GigEditViewModel: GigId, VenueName, Date, City, State, Zip
     }
 }
