@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.ModelConfiguration;
+using OneOff.Data.Entities.cs;
 
 namespace OneOff.Data
 {
@@ -22,6 +23,8 @@ namespace OneOff.Data
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<GigEntity> Gigs { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -37,8 +40,6 @@ namespace OneOff.Data
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
-
-            modelBuilder.Entity<IdentityUserRole>().HasKey(m => new { m.UserId, m.RoleId });
 
             modelBuilder
                 .Configurations
