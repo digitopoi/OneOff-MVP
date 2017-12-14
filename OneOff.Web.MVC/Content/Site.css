@@ -1,7 +1,9 @@
 ﻿body {
     padding-top: 90px;
     padding-bottom: 20px;
-    color: #37474F
+    color: #37474F;
+    background-image: url('../Content/images/2.png');
+    background-size: cover;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -55,8 +57,8 @@ span.field-validation-error {
 
 /* Bootstrap Overrides */
 .navbar-inverse {
-    background-color: #2196F3;
-    border-color: #2196F3;
+    background-color: #64B5F6;
+    border-color: #64B5F6;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -181,6 +183,22 @@ h6,
 
 .gigs > li:hover .actions {
     display: block;
+}
+
+.date {
+    box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+}
+
+.day {
+    background-color: navajowhite;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #f5f5f5;
 }
 
 #register-buttons {

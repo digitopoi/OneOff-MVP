@@ -45,7 +45,7 @@ namespace OneOff.Web.MVC.Controllers
         // POST: Gigs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(GigViewModel model)
+        public async Task<ActionResult> Create(GigEditViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -69,8 +69,9 @@ namespace OneOff.Web.MVC.Controllers
             var service = CreateGigService();
             var detail = await service.GetGigByIdAsync(id);
 
-            var model = new GigViewModel
+            var model = new GigEditViewModel
             {
+                GigId = detail.GigId,
                 VenueName = detail.VenueName,
                 Date = detail.Date,
                 City = detail.City,

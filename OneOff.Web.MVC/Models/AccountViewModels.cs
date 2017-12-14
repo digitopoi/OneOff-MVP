@@ -50,7 +50,6 @@ namespace OneOff.Web.MVC.Models
     {
         [Required]
         [Display(Name = "Username")]
-        [EmailAddress]
         public string UserName { get; set; }
 
         [Required]

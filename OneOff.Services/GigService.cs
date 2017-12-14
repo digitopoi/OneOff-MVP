@@ -20,7 +20,7 @@ namespace OneOff.Services
             _userId = userId;
         }
 
-        public async Task<bool> CreateGigAsync(GigViewModel model)
+        public async Task<bool> CreateGigAsync(GigEditViewModel model)
         {
             var entity = new GigEntity()
             {
@@ -53,16 +53,15 @@ namespace OneOff.Services
             }
         }
 
-        public async Task<GigViewModel> GetGigByIdAsync(int gigId)
+        public async Task<GigEditViewModel> GetGigByIdAsync(int gigId)
         {
             using (var context = new ApplicationDbContext())
             {
                 var entity = await context
                                         .Gigs
-                                        .Where(e => e.GigId == gigId && e.OwnerId == _userId)
-                                        .FirstOrDefaultAsync();
+                                        .SingleAsync(e => e.GigId == gigId && e.OwnerId == _userId);
 
-                return new GigViewModel
+                var userGig = new GigEditViewModel
                 {
                     VenueName = entity.VenueName,
                     Date = entity.Date,
@@ -70,18 +69,21 @@ namespace OneOff.Services
                     State = entity.State,
                     Zip = entity.Zip,
                 };
+
+                return userGig;
             }
         }
 
-        public IEnumerable<GigViewModel> GetGigs()
+        public IEnumerable<GigEditViewModel> GetGigs()
         {
             using (var context = new ApplicationDbContext())
             {
                 var query =  context
                                 .Gigs
                                 .Where(e => e.OwnerId == _userId)
-                                .Select(e => new GigViewModel
+                                .Select(e => new GigEditViewModel
                                 {
+                                    GigId = e.GigId,
                                     VenueName = e.VenueName,
                                     Date = e.Date,
                                     City = e.City,
