@@ -28,6 +28,7 @@ import { MapComponent } from './components/gigs/map/map.component';
 //  Services
 import { AuthService } from './services/auth.service';
 import { MapService } from './services/map.service';
+import { LoginComponent } from './components/login/login.component';
 
 const routes = [
   { path: 'landing', component: LandingComponent },
@@ -45,6 +46,7 @@ const routes = [
     MapComponent,
     GigsComponent,
     UserInputComponent,
+    LoginComponent,
     // MapComponent
   ],
   imports: [
