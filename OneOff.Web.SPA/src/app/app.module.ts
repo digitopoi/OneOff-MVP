@@ -16,6 +16,7 @@ import { GigsComponent } from './components/gigs/gigs.component';
 import { UserInputComponent } from './components/gigs/user-input/user-input.component';
 
 import { AuthService } from './services/auth.service';
+import { MapComponent } from './components/gigs/map/map.component';
 
 const routes = [
   { path: 'landing', component: LandingComponent },
@@ -31,7 +32,8 @@ const routes = [
     RegistrationComponent,
     LandingComponent,
     GigsComponent,
-    UserInputComponent
+    UserInputComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
