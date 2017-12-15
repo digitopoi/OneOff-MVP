@@ -33,6 +33,7 @@ import { LoginComponent } from './components/login/login.component';
 const routes = [
   { path: 'landing', component: LandingComponent },
   { path: 'gigs', component: GigsComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: '**', component: LandingComponent }
 ];
