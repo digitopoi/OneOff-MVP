@@ -20,7 +20,7 @@ namespace OneOff.Services
             _userId = userId;
         }
 
-        public async Task<bool> CreateGigAsync(GigEditViewModel model)
+        public bool CreateGig(GigViewModel model)
         {
             var entity = new GigEntity()
             {
@@ -35,34 +35,35 @@ namespace OneOff.Services
             using (var context = new ApplicationDbContext())
             {
                 context.Gigs.Add(entity);
-                return await context.SaveChangesAsync() == 1;
+                return context.SaveChanges() == 1;
             }
         }
 
-        public async Task<bool> DeleteGigAsync(int gigId)
+        public bool DeleteGig(int gigId)
         {
             using (var context = new ApplicationDbContext())
             {
-                var entity = await context
-                                        .Gigs
-                                        .Where(e => e.GigId == gigId && e.OwnerId == _userId)
-                                        .FirstOrDefaultAsync();
+                var entity = context
+                                    .Gigs
+                                    .Where(e => e.GigId == gigId && e.OwnerId == _userId)
+                                    .FirstOrDefault();
 
                 context.Gigs.Remove(entity);
-                return await context.SaveChangesAsync() == 1;
+                return context.SaveChanges() == 1;
             }
         }
 
-        public async Task<GigEditViewModel> GetGigByIdAsync(int gigId)
+        public GigEditViewModel GetGigById(int gigId)
         {
             using (var context = new ApplicationDbContext())
             {
-                var entity = await context
-                                        .Gigs
-                                        .SingleAsync(e => e.GigId == gigId && e.OwnerId == _userId);
+                var entity = context
+                                    .Gigs
+                                    .Single(e => e.GigId == gigId && e.OwnerId == _userId);
 
-                var userGig = new GigEditViewModel
+                var gig = new GigEditViewModel
                 {
+                    GigId = entity.GigId,
                     VenueName = entity.VenueName,
                     Date = entity.Date,
                     City = entity.City,
@@ -70,7 +71,7 @@ namespace OneOff.Services
                     Zip = entity.Zip,
                 };
 
-                return userGig;
+                return gig;
             }
         }
 
@@ -96,13 +97,13 @@ namespace OneOff.Services
             }
         }
 
-        public async Task<bool> UpdateGigAsync(GigEditViewModel model)
+        public bool UpdateGig(GigEditViewModel model)
         {
             using (var context = new ApplicationDbContext())
             {
-                var entity = await context
-                                    .Gigs
-                                    .FirstOrDefaultAsync(e => e.GigId == model.GigId && e.OwnerId == _userId);
+                var entity = context
+                                .Gigs
+                                .FirstOrDefault(e => e.GigId == model.GigId && e.OwnerId == _userId);
 
                 entity.VenueName = model.VenueName;
                 entity.Date = model.Date;
@@ -110,7 +111,7 @@ namespace OneOff.Services
                 entity.State = model.State;
                 entity.Zip = model.Zip;
 
-                return await context.SaveChangesAsync() == 1;
+                return context.SaveChanges() == 1;
             }
         }
     }

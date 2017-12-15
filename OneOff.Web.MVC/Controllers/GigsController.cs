@@ -28,10 +28,10 @@ namespace OneOff.Web.MVC.Controllers
         }
 
         // GET: Gigs/Details/5
-        public async Task<ActionResult> Details(int id)
+        public ActionResult Details(int id)
         {
             var service = CreateGigService();
-            var model = await service.GetGigByIdAsync(id);
+            var model = service.GetGigById(id);
 
             return View(model);
         }
@@ -45,7 +45,7 @@ namespace OneOff.Web.MVC.Controllers
         // POST: Gigs/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(GigEditViewModel model)
+        public ActionResult Create(GigViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace OneOff.Web.MVC.Controllers
 
             var service = CreateGigService();
 
-            if (await service.CreateGigAsync(model))
+            if (service.CreateGig(model))
             {
                 return RedirectToAction("Index");
             }
@@ -64,10 +64,10 @@ namespace OneOff.Web.MVC.Controllers
         }
 
         // GET: Gigs/Edit/5
-        public async Task<ActionResult> Edit(int id)
+        public ActionResult Edit(int id)
         {
             var service = CreateGigService();
-            var detail = await service.GetGigByIdAsync(id);
+            var detail = service.GetGigById(id);
 
             var model = new GigEditViewModel
             {
@@ -85,7 +85,7 @@ namespace OneOff.Web.MVC.Controllers
         // POST: Gigs/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int id, GigEditViewModel model)
+        public ActionResult Edit(int id, GigEditViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -97,7 +97,7 @@ namespace OneOff.Web.MVC.Controllers
 
             var service = CreateGigService();
 
-            if (await service.UpdateGigAsync(model))
+            if (service.UpdateGig(model))
             {
                 return RedirectToAction("Index");
             }
@@ -108,10 +108,10 @@ namespace OneOff.Web.MVC.Controllers
         }
 
         // GET: Gigs/Delete/5
-        public async Task<ActionResult> Delete(int id)
+        public ActionResult Delete(int id)
         {
             var service = CreateGigService();
-            var model = await service.GetGigByIdAsync(id);
+            var model = service.GetGigById(id);
 
             return View(model);
         }
@@ -119,10 +119,10 @@ namespace OneOff.Web.MVC.Controllers
         // POST: Gigs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeletePost(int id)
+        public ActionResult DeletePost(int id)
         {
             var service = CreateGigService();
-            await service.DeleteGigAsync(id);
+            service.DeleteGig(id);
 
             return RedirectToAction("Index");
         }
