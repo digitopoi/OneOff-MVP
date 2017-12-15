@@ -12,12 +12,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { GigsComponent } from './components/gigs/gigs.component';
+import { UserInputComponent } from './components/gigs/user-input/user-input.component';
 
 import { AuthService } from './services/auth.service';
-import { GigsComponent } from './components/gigs/gigs.component';
 
 const routes = [
   { path: 'landing', component: LandingComponent },
+  { path: 'gigs', component: GigsComponent },
   { path: 'register', component: RegistrationComponent },
   { path: '**', component: LandingComponent }
 ];
@@ -28,7 +30,8 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LandingComponent,
-    GigsComponent
+    GigsComponent,
+    UserInputComponent
   ],
   imports: [
     BrowserModule,

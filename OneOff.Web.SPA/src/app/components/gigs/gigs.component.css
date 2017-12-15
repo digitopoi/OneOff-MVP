@@ -1,0 +1,46 @@
+.artist-app {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 46em;
+}
+
+.user-panel {
+    /* width: 25%; */
+    background-color: red;
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-section {
+    width: 55%;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-input {
+    height: 95%;
+    background-color: white;
+}
+
+/* .user-result {
+    height: 63%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: orange;
+} */
+
+.map {
+    height: 75%;
+    background-color: yellow;
+}
+
+.change-radius {
+    height: 23%;
+    background-color: maroon;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
