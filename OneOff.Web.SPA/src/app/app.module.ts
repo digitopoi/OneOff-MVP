@@ -24,7 +24,10 @@ import { LandingComponent } from './components/landing/landing.component';
 import { GigsComponent } from './components/gigs/gigs.component';
 import { UserInputComponent } from './components/gigs/user-input/user-input.component';
 import { MapComponent } from './components/gigs/map/map.component';
+
+//  Services
 import { AuthService } from './services/auth.service';
+import { MapService } from './services/map.service';
 
 const routes = [
   { path: 'landing', component: LandingComponent },
@@ -39,6 +42,7 @@ const routes = [
     HeaderComponent,
     RegistrationComponent,
     LandingComponent,
+    MapComponent,
     GigsComponent,
     UserInputComponent,
     // MapComponent
@@ -47,15 +51,14 @@ const routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule,
-    HttpModule,
     AngularFontAwesomeModule
   ],
   providers: [

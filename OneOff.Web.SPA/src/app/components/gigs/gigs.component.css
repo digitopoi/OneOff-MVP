@@ -38,6 +38,10 @@
     background-color: yellow;
 }
 
+#map {
+    height: 400px;
+}
+
 .change-radius {
     height: 23%;
     background-color: maroon;
