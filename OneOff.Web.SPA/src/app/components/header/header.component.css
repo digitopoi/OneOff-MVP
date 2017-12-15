@@ -2,6 +2,15 @@
     flex: 1 1 auto;
 }
 
+.nav-logo {
+    margin-left: 5em;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.bus {
+    color: #01579b;
+}
 .nav-btn {
     margin-right: 0.5em;
     background-color: #01579b;

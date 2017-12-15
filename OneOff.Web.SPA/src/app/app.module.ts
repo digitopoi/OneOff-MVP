@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { LandingComponent } from './components/landing/landing.component';
 
 import { AuthService } from './services/auth.service';
+import { GigsComponent } from './components/gigs/gigs.component';
 
 const routes = [
   { path: 'landing', component: LandingComponent },
@@ -25,7 +27,8 @@ const routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LandingComponent
+    LandingComponent,
+    GigsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ const routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFontAwesomeModule
   ],
   providers: [
     AuthService
