@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs/Subject';
 import { Token } from './../models/Token';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterUser } from './../models/RegisterUser';
@@ -8,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 const Api_Url = 'http://localhost:63577';
 @Injectable()
 export class AuthService {
+  isLoggedIn = new Subject<boolean>();
 
   constructor(
     private _http: HttpClient,
@@ -23,6 +25,7 @@ export class AuthService {
 
     return this._http.post(`${Api_Url}/token`, string).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
+      this.isLoggedIn.next(true);
       this._router.navigate(['/gigs']);
     });
   }
