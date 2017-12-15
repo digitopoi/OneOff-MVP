@@ -10,19 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 import { AuthService } from './services/auth.service';
 
 const routes = [
+  { path: 'landing', component: LandingComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: '**', component: RegistrationComponent }
+  { path: '**', component: LandingComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
