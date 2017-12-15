@@ -16,13 +16,10 @@ export class LandingComponent implements OnInit {
   // onLogin() {
   //   this._authService.login();
   // }
-
   // onVenueRegister() {
   //   this._authService.venueLogin();
   // }
-
   // onArtistRegister() {
   //   this._authService.artistLogin();
   // }
-
 }
