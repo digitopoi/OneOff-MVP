@@ -25,9 +25,11 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    const string = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
+    const eu = encodeURI(loginInfo.email);
+    const ep = encodeURI(loginInfo.password);
+    const str = `grant_type=password&username=${eu}&password=${ep}`;
 
-    return this._http.post(`${Api_Url}/token`, string).subscribe( (token: Token) => {
+    return this._http.post(`${Api_Url}/Token`, str).subscribe((token: Token) => {
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
       this._router.navigate(['/gigs']);

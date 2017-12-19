@@ -9,7 +9,6 @@ import { MapService } from './../../services/map.service';
   styleUrls: ['./gigs.component.css']
 })
 export class GigsComponent implements OnInit {
-
   gigForm: FormGroup;
 
   constructor(
@@ -23,6 +22,7 @@ export class GigsComponent implements OnInit {
   }
 
   ngOnViewInit() {
+
   }
 
   createForm() {
@@ -33,6 +33,10 @@ export class GigsComponent implements OnInit {
       state: new FormControl,
       zip: new FormControl
     });
+  }
+
+  onAdd(form) {
+    this._mapService.geoCode(form);
   }
 
   onSubmit(form) {

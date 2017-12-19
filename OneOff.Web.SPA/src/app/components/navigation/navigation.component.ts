@@ -18,7 +18,7 @@ export class NavigationComponent implements OnInit {
     this.authService.currentUser().subscribe((userInfo: UserInfo) => {
       if (userInfo) {
         this.isLoggedIn = true;
-        this.username = userInfo.email;
+        this.username = userInfo.username;
       } else {
         this.isLoggedIn = false;
       }

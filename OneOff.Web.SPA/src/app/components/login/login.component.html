@@ -1,9 +1,9 @@
 <div class="container main">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="registerForm">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="loginForm">
     <div class="row">
         <div class="input-field s12">
-          <input id="username" type="text" formControlName="username" class="validate" required>
-          <label for="usernmae">Username</label>
+          <input id="email" type="text" formControlName="email" class="validate" required>
+          <label for="email">Email</label>
         </div>
         <div class="input-field s12">
           <input id="Password" type="password" formControlName="password" class="validate" required>

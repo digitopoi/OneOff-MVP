@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http/';
+import * as L from 'leaflet';
 
 const mapBoxToken = environment.MAPBOX_API_KEY;
 const googleToken = environment.GOOGLE_API_KEY;
 
 const google_URL = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
-
-declare var L: any;
 
 const defaultCoords: number[] = [39.97, 86];
 const defaultZoom = 8;
@@ -15,10 +14,16 @@ const defaultZoom = 8;
 @Injectable()
 export class MapService {
 
-  constructor(private _http: HttpClient) { }
+  // public map: L.map;
+
+  constructor(private _http: HttpClient) {
+    // this.map = L.map('map').setView([39.9668, -86.0086], 10);
+  }
+
 
   drawMap() {
     const map = L.map('map').setView([39.9668, -86.0086], 10);
+    // this.map = L.map('map').setView([39.9668, -86.0086], 10);
 
     map.maxZoom = 100;
 
@@ -33,10 +38,16 @@ export class MapService {
 
   geoCode(form) {
     const queryString = google_URL + form.value.zip + '&key=' + googleToken;
-    console.log(form);
-    console.log(queryString);
-    return this._http.get(queryString).subscribe(data =>
-      console.log(data.results.geometry.location));
+    // console.log(form);
+    // console.log(queryString);
+    return this._http.get(queryString).subscribe(res =>
+      // console.log(Array.from(res.results[0].geometry.location)));
+      console.log(res.results[0].geometry.location));
   }
+
+  // gigToMap(result) {
+  //   L.marker([result.lat, result.log]).addTo(this.map);
+  // }
+
 
 }
