@@ -1,3 +1,4 @@
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { MapService } from './../../services/map.service';
@@ -9,7 +10,13 @@ import { MapService } from './../../services/map.service';
 })
 export class GigsComponent implements OnInit {
 
-  constructor(private _mapService: MapService) { }
+  gigForm: FormGroup;
+
+  constructor(
+    private _form: FormBuilder,
+    private _mapService: MapService) {
+    this.createForm();
+  }
 
   ngOnInit() {
     this._mapService.drawMap();
@@ -17,5 +24,21 @@ export class GigsComponent implements OnInit {
 
   ngOnViewInit() {
   }
+
+  createForm() {
+    this.gigForm = this._form.group({
+      venue: new FormControl,
+      date: new FormControl,
+      city: new FormControl,
+      state: new FormControl,
+      zip: new FormControl
+    });
+  }
+
+  onSubmit(form) {
+    this._mapService.geoCode(form);
+  }
+
+
 
 }
