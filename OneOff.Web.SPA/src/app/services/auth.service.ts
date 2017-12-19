@@ -1,14 +1,19 @@
-import { Subject } from 'rxjs/Subject';
-import { Token } from './../models/Token';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterUser } from './../models/RegisterUser';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
+import { Token } from '../models/token';
+import { CookieXSRFStrategy } from '@angular/http/src/backends/xhr_backend';
+import { Router } from '@angular/router';
+import 'rxjs/add/observable/empty';
+import 'rxjs/add/operator/map';
 
 const Api_Url = 'http://localhost:63577';
+
 @Injectable()
 export class AuthService {
+
   isLoggedIn = new Subject<boolean>();
 
   constructor(
@@ -20,8 +25,7 @@ export class AuthService {
   }
 
   login(loginInfo) {
-    const string =
-      `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
+    const string = `grant_type=password&username=${encodeURI(loginInfo.email)}&password=${encodeURI(loginInfo.password)}`;
 
     return this._http.post(`${Api_Url}/token`, string).subscribe( (token: Token) => {
       localStorage.setItem('id_token', token.access_token);
@@ -35,7 +39,7 @@ export class AuthService {
 
     const authHeader = this.setHeader();
 
-    return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader });
+    return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: authHeader }).map(v => v);
   }
 
   logout() {

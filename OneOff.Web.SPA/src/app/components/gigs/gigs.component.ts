@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+
+import { MapService } from './../../services/map.service';
 
 @Component({
   selector: 'app-gigs',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GigsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _mapService: MapService) { }
 
   ngOnInit() {
+    this._mapService.drawMap();
+  }
+
+  ngOnViewInit() {
   }
 
 }

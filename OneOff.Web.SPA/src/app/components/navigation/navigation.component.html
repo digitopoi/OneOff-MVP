@@ -1,0 +1,21 @@
+<nav>
+  <div class="nav-wrapper blue">
+    <div class="container">
+      <a href="#" class="brand-logo"><i class="material-icons bus">directions_bus</i>OneOff</a>
+
+      <div *ngIf="isLoggedIn; else auth">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <!-- <span>Welcome {{ username }}</span> -->
+          <li><a (click)="onLogoutClicked()">Logout</a></li>
+        </ul>
+      </div>
+      <ng-template #auth>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a routerLink="register">Register</a></li>
+          <li><a routerLink="login">Login</a></li>
+        </ul>
+      </ng-template>
+
+    </div>
+  </div>
+</nav>

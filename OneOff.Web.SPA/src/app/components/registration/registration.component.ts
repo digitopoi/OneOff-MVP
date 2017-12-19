@@ -1,6 +1,8 @@
-import { AuthService } from './../../services/auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -9,11 +11,13 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  private _registerForm: FormGroup;
+  registerForm: FormGroup;
 
   constructor(
     private _form: FormBuilder,
-    private _authService: AuthService) {
+    private _authService: AuthService,
+    private _router: Router) {
+
     this.createForm();
   }
 
@@ -21,7 +25,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   createForm() {
-    this._registerForm = this._form.group({
+    this.registerForm = this._form.group({
       email: new FormControl,
       username: new FormControl,
       password: new FormControl,
@@ -29,13 +33,15 @@ export class RegistrationComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(form) {
     this._authService
-      .register(this._registerForm.value)
-      .subscribe( () => this._authService.login(this._registerForm.value));
+      .register(form.value)
+      .subscribe( value => {
+        this._authService.login(form.value);
+        this._router.navigate(['gigs']);
+      });
 
-
-    console.log(this._registerForm.value);
+    console.log(this.registerForm.value);
   }
 
 }

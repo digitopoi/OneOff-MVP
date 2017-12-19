@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-landing',
@@ -8,18 +7,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private _authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  // onLogin() {
-  //   this._authService.login();
-  // }
-  // onVenueRegister() {
-  //   this._authService.venueLogin();
-  // }
-  // onArtistRegister() {
-  //   this._authService.artistLogin();
-  // }
 }

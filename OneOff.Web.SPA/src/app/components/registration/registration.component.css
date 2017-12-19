@@ -1,16 +1,6 @@
-.submit-button {
-    margin-top: 1em;
-    margin-left: 3.6em;
-    justify-content: center;
-}
-
-.container {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-}
-
-.register {
     justify-content: center;
 }
