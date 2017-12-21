@@ -8,6 +8,10 @@ OneOff's (future) goal is to connect small to mid-sized traveling musicians with
 
 1. Clone the Repo. 
 
+```bash
+git clone https://github.com/digitopoi/OneOff-MVP.git
+```
+
 2. Check to make sure that the OneOff.Web.MVC app is the startup project. 
 
 3. Run the app and register a new account.
