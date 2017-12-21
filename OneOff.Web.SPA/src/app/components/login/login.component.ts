@@ -1,8 +1,6 @@
-import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
-import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public _headers = new HttpHeaders();
+
   public loginForm: FormGroup;
 
-  constructor(private _form: FormBuilder, private _authService: AuthService, private _router: Router) {
-    this.createForm();
-  }
+  constructor(
+    private _form: FormBuilder,
+    private _authService: AuthService) {
+      this.createForm();
+    }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   createForm() {
     this.loginForm = this._form.group({
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(form) {
-    this._authService.login(form.value);
+  onSubmit() {
+    this._authService.login(this.loginForm.value);
   }
+
 }

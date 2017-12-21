@@ -1,0 +1,41 @@
+<!--      venueName: new FormControl,
+          date: new FormControl,
+          city: new FormControl,
+          state: new FormControl,
+          zip: new FormControl, -->
+
+<h1>Add a Gig.</h1>
+<hr>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="gigForm">
+  <div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Date" formControlName="date" type="date" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Venue" formControlName="venueName" type="text" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="City" formControlName="city" type="text" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="State" formControlName="state" type="text" required/>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input matInput placeholder="Zip" formControlName="zip" type="text" required/>
+      </mat-form-field>
+    </div>
+  </div>
+  <button mat-raised-button class="nav-btn" color="accent" type="submit">Add Gig</button>
+</form>
+
+<a mat-button routerLink="/notes">Back to List</a>

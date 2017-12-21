@@ -1,0 +1,43 @@
+<h1>Edit Gig</h1>
+<hr>
+
+<div *ngIf="gig">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" [formGroup]="editGigForm">
+    <div>
+      <div hidden>
+        <mat-form-field>
+          <input matInput placeholder="GigId" formControlName="gigId" type="GigId" required [value]="gig.GigId">
+        </mat-form-field>
+      </div>
+      
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Date" formControlName="date" type="date" required [value]="gig.Date" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Venue" formControlName="venueName" type="text" required [value]="gig.VenueName" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city" type="text" required [value]="gig.City" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="State" formControlName="state" type="text" required [value]="gig.State" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Zip" formControlName="zip" type="text" required [value]="gig.Zip" />
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-raised-button class="nav-btn" color="accent" type="submit">Save</button>
+  </form>
+</div>
+
+<a mat-button routerLink="/gigs">Back to list</a>

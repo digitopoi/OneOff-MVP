@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneOff.Web.MVC", "OneOff.Web.MVC\OneOff.Web.MVC.csproj", "{1F777795-3C7B-44FD-A40E-C3E8EE0204A1}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneOff.Contracts", "OneOff.Contracts\OneOff.Contracts.csproj", "{FCF64166-91D1-4494-ACA2-32C7246B89B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneOff.API", "OneOff.API\OneOff.API.csproj", "{98CC38A5-60B9-42AB-B33D-6A618420517E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneOff.Tests", "OneOff.Tests\OneOff.Tests.csproj", "{F61F45BB-2C2F-42F3-B028-CD9A089D4667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{98CC38A5-60B9-42AB-B33D-6A618420517E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98CC38A5-60B9-42AB-B33D-6A618420517E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98CC38A5-60B9-42AB-B33D-6A618420517E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61F45BB-2C2F-42F3-B028-CD9A089D4667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61F45BB-2C2F-42F3-B028-CD9A089D4667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61F45BB-2C2F-42F3-B028-CD9A089D4667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61F45BB-2C2F-42F3-B028-CD9A089D4667}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

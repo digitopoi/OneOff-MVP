@@ -1,0 +1,29 @@
+<h1>Cancel</h1>
+<h4>Are you sure you want to cancel this?</h4>
+
+<hr>
+<div *ngIf="gig">
+  <div>
+    <label for="">Date</label>
+    <span>{{ gig.GigId }}</span>
+  </div>
+  <div>
+    <label for="">Venue</label>
+    <span>{{ gig.VenueName }}</span>
+  </div>
+  <div>
+    <label for="">City</label>
+    <span>{{ gig.City }}</span>
+  </div>
+  <div>
+    <label for="">State</label>
+    <span>{{ gig.State }}</span>
+  </div>
+  <div>
+    <label for="">Zip</label>
+    <span>{{ gig.Zip }}</span>
+  </div>
+</div>
+
+<button mat-button color="warn" (click)="onDelete()">Cancel</button>
+<button mat-button color="accent" routerLink="/gigs">Back</button>

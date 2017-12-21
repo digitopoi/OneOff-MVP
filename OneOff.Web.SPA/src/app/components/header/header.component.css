@@ -1,0 +1,16 @@
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.nav-btn {
+    margin-right: 0.5em;
+}
+
+.brand {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.bus {
+    color: #1976D2;
+}

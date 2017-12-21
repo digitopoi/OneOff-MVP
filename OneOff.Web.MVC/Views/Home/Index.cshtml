@@ -9,15 +9,11 @@
             <p class="tag">Buy the ticket, take the ride.</p>
 
             <div class="row">
-                <button class="btn btn-default register" type="submit" name="action" routerLink="register">
-                    Create Account
-                </button>
-
+                @Html.ActionLink("Create Account", "Register", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default register" })
             </div>
             <div class="row">
-                <button class="btn btn-default login" type="submit" name="action">
-                    Login
-                </button>
+                @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-default login" })
+                
             </div>
         </header>
     </div>
